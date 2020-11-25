@@ -1,4 +1,6 @@
 const path = require('path');
+const loader = require('sass-loader');
+
 
 module.exports = {
     module: {
@@ -9,16 +11,35 @@ module.exports = {
               "style-loader",
               "css-loader",
               "sass-loader",
-            ],
+              {
+                loader:'file-loader',
+                options: {
+                  name: '/[name].css'
+                }
+              }
+            ], 
+            include: [path.resolve(__dirname, 'src/')] 
+          },
+          {
+            test: /\.html$/i,
+            loader: 'html-loader',
           },
         ],
       },
     externals: {
-        lodash: '_'
+        lodash: '_',
+        leaflet: 'L',
     },
-  entry: './src/index.js',
+    devServer: {
+      contentBase: path.join(__dirname, 'dist'),
+      filename: 'index.html',
+      compress: true,
+      port: 8080
+    },
+  entry: ['./src/index.js','./src/input.scss'],
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+ 
 };
