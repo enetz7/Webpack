@@ -1,7 +1,7 @@
 const path = require('path');
 const loader = require('sass-loader');
-
-
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     module: {
         rules: [
@@ -10,12 +10,14 @@ module.exports = {
             use: [
               "style-loader",
               "css-loader",
-              "sass-loader",
               {
-                loader:'file-loader',
+                loader:'sass-loader',
                 options: {
-                  name: '/[name].css'
-                }
+                  sourceMap: true,
+                  sassOptions: {
+                    outputStyle: "compressed",
+                  },
+                },
               }
             ], 
             include: [path.resolve(__dirname, 'src/')] 
@@ -26,6 +28,16 @@ module.exports = {
           },
         ],
       },
+    plugins: [
+      new HtmlWebpackPlugin({  
+        filename: 'index.html',
+        template: 'src/index.html',
+        hash: false
+      }),
+      new MiniCSSExtractPlugin({
+        filename: "/dist/input.css",
+      })
+    ],
     externals: {
         lodash: '_',
         leaflet: 'L',
@@ -36,9 +48,9 @@ module.exports = {
       compress: true,
       port: 8080
     },
-  entry: ['./src/index.js','./src/input.scss'],
+  entry: ['./src/index.js','./src/index.html'],
   output: {
-    filename: 'main.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
   },
  

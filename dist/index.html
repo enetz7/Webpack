@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Getting Started</title>
-  </head>
-  <body>
-   <script src="main.js"></script>
-  </body>
-</html>
+Html Webpack Plugin:
+<pre>
+  Error: webpack://Leaflet-Webpack/./node_modules/leaflet/dist/leaflet-src.js?:226
+    var requestFn = window.requestAnimationFrame || getPrefixed('RequestAnimationFrame') || timeoutDefer  ;
+                    ^
+  ReferenceError: window is not defined
+  
+  - leaflet-src.js?:226 eval
+    [.]/[leaflet]/dist/leaflet-src.js?:226:19
+  
+  - leaflet-src.js?:7 eval
+    [.]/[leaflet]/dist/leaflet-src.js?:7:11
+  
+  - leaflet-src.js?:9 eval
+    [.]/[leaflet]/dist/leaflet-src.js?:9:2
+  
+  - index.html:79 Object../node_modules/leaflet/dist/leaflet-src.js
+    C:/Users/2dam3.HZ114487/Desktop/Frontend/Webpack/src/index.html:79:1
+  
+  - index.html:160 __webpack_require__
+    C:/Users/2dam3.HZ114487/Desktop/Frontend/Webpack/src/index.html:160:42
+  
+  - index.js?:4 eval
+    webpack://Leaflet-Webpack/./src/index.js?:4:65
+  
+  - index.html:137 Module../src/index.js
+    C:/Users/2dam3.HZ114487/Desktop/Frontend/Webpack/src/index.html:137:1
+  
+  - index.html:160 __webpack_require__
+    C:/Users/2dam3.HZ114487/Desktop/Frontend/Webpack/src/index.html:160:42
+  
+  - loader.js:3 eval
+    [index.html?.]/[html-webpack-plugin]/lib/loader.js:3:34
+  
+  - index.html:65 Object../node_modules/html-webpack-plugin/lib/loader.js!./src/index.html
+    C:/Users/2dam3.HZ114487/Desktop/Frontend/Webpack/src/index.html:65:1
+  
+</pre>
