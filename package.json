@@ -11,8 +11,8 @@
   },
   "scripts": {
     "prebuild": "rm -r dist",
-    "build": "webpack --mode=production",
-    "start": "webpack --mode=development",
+    "build": "webpack --mode=production && cp -v ./src/index.html ./dist/",
+    "start": "cp -v ./src/index.html ./dist/ && webpack --mode=development",
     "prestart": "rm -r dist",
     "poststart": "webpack serve"
   },

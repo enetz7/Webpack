@@ -1,7 +1,6 @@
 const path = require('path');
 const loader = require('sass-loader');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     module: {
         rules: [
@@ -29,11 +28,6 @@ module.exports = {
         ],
       },
     plugins: [
-      new HtmlWebpackPlugin({  
-        filename: 'index.html',
-        template: 'src/index.html',
-        hash: false
-      }),
       new MiniCSSExtractPlugin({
         filename: "/dist/input.css",
       })
