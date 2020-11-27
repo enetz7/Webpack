@@ -12,7 +12,7 @@
   "scripts": {
     "prebuild": "rm -r dist",
     "build": "webpack --mode=production && cp -v ./src/index.html ./dist/",
-    "start": "cp -v ./src/index.html ./dist/ && webpack --mode=development",
+    "start": "webpack --mode=development && cp -v ./src/index.html ./dist/",
     "prestart": "rm -r dist",
     "poststart": "webpack serve"
   },
