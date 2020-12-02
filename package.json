@@ -10,22 +10,23 @@
     "webpack-cli": "^4.2.0"
   },
   "scripts": {
-    "prebuild": "rm -r dist",
+    "prebuild": "rm -fr dist",
     "build": "webpack --mode=production && cp -v ./src/index.html ./dist/",
     "start": "webpack --mode=development && cp -v ./src/index.html ./dist/",
-    "prestart": "rm -r dist",
+    "prestart": "rm -fr dist",
     "poststart": "webpack serve"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
     "css-loader": "^5.0.1",
     "file-loader": "^6.2.0",
     "html-loader": "^1.3.2",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
-    "webpack": "^5.6.0",
+    "webpack": "^5.9.0",
     "webpack-dev-server": "^3.11.0"
   }
 }
